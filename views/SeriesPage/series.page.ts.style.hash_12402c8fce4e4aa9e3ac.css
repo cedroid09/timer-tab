@@ -1,0 +1,225 @@
+/* Layout */
+.pretty_scroll_area__hide_scroll_element {
+  position: relative;
+}
+.pretty_scroll_area__hide_scroll_element > #screen-buttons-wrapper {
+  position: absolute;
+}
+#screen-buttons-wrapper {
+  top: 10px;
+}
+#screen-buttons-wrapper {
+  text-align: right;
+}
+#screen-buttons-wrapper > .screen-button {
+  display: inline-block;
+}
+.screen-button {
+  margin-top: 10px;
+  padding: 11px 15px;
+  white-space: nowrap;
+}
+
+/* Inner Layout */
+.screen-button {
+  line-height: 0;
+}
+.screen-button .button-icon {
+  vertical-align: middle;
+  position: relative;
+}
+.screen-button .button-text {
+  position: relative;
+  top: 1px;
+}
+
+/* Text */
+#fullscreen-button .button-text::before {
+  content: "\A0\A0 Fullscreen";
+}
+#settings-button .button-text::before {
+  content: "\A0\A0 Settings";
+}
+#donate-button .button-text::before {
+  content: "\A0\A0 Donate";
+}
+html.user-donated #donate-button .button-text::before {
+  content: "\A0\A0 Thanks";
+}
+#center-button .button-text::before {
+  content: "\A0\A Center";
+}
+#center-button.auto-scroll-is-active .button-text::before {
+  content: "\A0\A Center";
+}
+@media (max-width: 849px) {
+  .screen-button {
+    padding: 11px;
+  }
+  .button-text::before {
+    display: none;
+  }
+}
+
+/* Icons */
+.screen-button .button-icon {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#fullscreen-button .button-icon {
+  background-image: url(/fullscreen.hash_66d8040fda4e49d9985b774473848ea0.svg);
+}
+#settings-button .button-icon {
+  background-image: url(/settings.hash_45b5a358a0f030f7381537a43b4d573f.svg);
+  height: 17px;
+  width: 19px;
+}
+#donate-button .button-icon {
+  background-image: url(/donate.hash_a0d107d677d1a39459f87c46a11a2179.svg);
+  height: 18px;
+  width: 18px;
+}
+html.user-donated #donate-button .button-icon {
+  background-image: url(/thanks.hash_ab51482c374b085724c3f29b1b0d8f17.svg);
+  height: 16px;
+  width: 16px;
+}
+#center-button .button-icon {
+  background-image: url(/center.hash_8dd38704066e8fd9af355056dfa76415.svg);
+}
+#center-button.auto-scroll-is-active .button-icon {
+  transform: rotateZ(360deg);
+  background-image: url(/center__blinking.hash_d314a0d9dacc55d2fa768688948cff7d.svg);
+}
+
+/* Aesthetics */
+.screen-button {
+  cursor: pointer;
+  user-select: none;
+  color: var(--panel-color);
+}
+.screen-button {
+  position: relative;
+}
+.screen-button > .screen-button::before {
+  position: absolute;
+}
+.screen-button::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  z-index: -1;
+  box-shadow: var(--common-shadow);
+}
+.screen-button::before,
+.screen-button > .button-background.glass-background,
+.screen-button > .button-background.glass-background::after {
+  border-radius: 8px;
+}
+.screen-button > .button-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Function */
+#screen-buttons-wrapper {
+  pointer-events: none;
+}
+.screen-button {
+  pointer-events: all;
+}
+.screen-button {
+  opacity: 100;
+  visibility: visible;
+  transition: opacity 0.7s ease-out;
+}
+.hide_scroll .screen-button {
+  pointer-events: none;
+  /* we set `visibility: hidden` in order to skip the animation computation of `center__blinking.svg` */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.7s, opacity 0.7s ease-in;
+}
+#screen-buttons-wrapper {
+  --base-width: 16px;
+  right: calc(var(--base-width) + var(--scroll-bar-width));
+  transition: right 0.3s linear;
+}
+.hide_scroll #screen-buttons-wrapper {
+  right: var(--base-width);
+}
+
+#header-container {
+  text-align: center;
+}
+#header-container > #header-content {
+  display: inline-flex;
+}
+
+.footer-section-title {
+  color: #5a5d61;
+}
+
+#footer_container {
+  padding-top: 40px;
+}
+
+.more_panel_block {
+  margin: auto;
+  max-width: var(--max-content-width);
+  padding-left: var(--content-side-padding);
+  padding-right: var(--content-side-padding);
+  padding-top: 34px;
+}
+
+#fv_left-side {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#fv_right-side {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+#fv_full-view-layout {
+  width: 100vw;
+  display: flex;
+  align-items: stretch;
+}
+
+.toastify,
+.toastify * {
+  cursor: default !important;
+}
+
+#time-counter-list {
+  --time-counter-width: 187px;
+  display: grid;
+  /* Automatic width: https://stackoverflow.com/questions/52504049/why-doesnt-min-content-work-with-auto-fill-or-auto-fit */
+  grid-template-columns: repeat(auto-fill, var(--time-counter-width));
+  max-width: 100%;
+  grid-gap: 20px;
+}
+.time-counter,
+.time-counter:after {
+  border-radius: 20px;
+}
+.time-counter {
+  padding: 20px;
+}
+
+
+/*# sourceMappingURL=series.page.ts.style.hash_12402c8fce4e4aa9e3ac.css.map*/
